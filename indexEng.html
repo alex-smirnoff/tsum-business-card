@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+        <link rel="stylesheet" type="text/css" href="css/businessCard.css">
+        <link rel="stylesheet" type="text/css" href="css/headerFooter.css">
+        <script type="text/javascript" src="js/dataAboutCompany.js"></script>
+        <script type="text/javascript" src="js/libs/qrcode.min.js"></script>
+        <script type="text/javascript" src="js/libs/pdfmake.min.js" defer></script>
+        <script type="text/javascript" src="js/libs/vfs_fonts.js" defer></script>
+        <script type="text/javascript" src="js/encoded_base64.js" defer></script>
+        <title>Business card</title>
+    </head>
+    <body>
+        <section class="header">
+            <a href="https://tsum.ua" class="logoLink">
+                <img class="logo" fill="none" src="img/logo.svg" alt="TSUM Kyiv Logo">
+            </a>
+            <div class="languageSwitcher">
+                <p class="pageLanguage">ENG</p>
+                <svg class="languageSwitcherArrow" viewBox="0 0 24 24" fill="none">
+                    <path class="languageSwitcherArrowPath" d="M8.70999 11.7101L11.3 14.3001C11.3925 14.3928 11.5024 14.4663 11.6234 14.5165C11.7443 14.5667 11.874 14.5925 12.005 14.5925C12.136 14.5925 12.2656 14.5667 12.3866 14.5165C12.5076 14.4663 12.6175 14.3928 12.71 14.3001L15.3 11.7101C15.93 11.0801 15.48 10.0001 14.59 10.0001L9.40999 10.0001C8.51999 10.0001 8.07999 11.0801 8.70999 11.7101Z" fill="black"/>
+                </svg>
+                <div class="wrapperLanguage">
+                    <div class="languageOptions">
+                        <svg class="languageChosenSVG" viewBox="0 0 4 21" fill="none">
+                            <path d="M0 0C2.20914 0 4 1.79086 4 4V17C4 19.2091 2.20914 21 0 21V0Z" fill="black"/>
+                        </svg>
+                        <a href="indexEng.html"><li class="languageChoice">ENG</li></a>
+                        <a href="index.html"><li class="languageChoice">UKR</li></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="formSection">
+            <div class="formFields">
+                <div class="backButton">Complete the fields</div>
+                <div class="containerForDropdown">
+                    <p class="fieldTextLabel">Card language</p>
+                    <input class="fieldInput" id="dropdownInputLanguage" type="text" readonly>
+                    <svg class="formDropdownArrow" id="dropdownArrowLanguage" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path id="feArrowUp2" fill-rule="evenodd" clip-rule="evenodd" d="M11.472 6.934L7.73601 10.67L4.00001 6.934L4.93401 6L7.73601 8.802L10.538 6L11.472 6.934Z" fill="#818A8F"/>
+                    </svg>
+                    <div class="dropdownsInForm" id="dropdownsInFormLanguage">
+                        <input class="searchInDropdowns" id="searchInDropdownsLanguage" type="text" placeholder="Search" style="display: none;">
+                        <svg class="searchIcon" width="15" height="15" viewBox="0 0 17 17" fill="none" style="display: none;">
+                            <path d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z" stroke="#818A8F" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14.0001 14.0001L11.1001 11.1001" stroke="#818A8F" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <ul class="dropdownList">
+                            <li><button class="buttonsInDropdownsLanguage">Ukrainian</button></li>
+                            <li><button class="buttonsInDropdownsLanguage">English</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="containerForTextField">
+                    <p class="fieldTextLabel">Full name</p>
+                    <input class="fieldInput" id="fullnameInput" type="text" placeholder="Bruce Steelmaker" maxlength="80" name="fullname" autocomplete="on">
+                    <p class="charCount" id="charCount1">0/80</p>
+                </div>
+                <div class="containerForTextField">
+                    <p class="fieldTextLabel">Email</p>
+                    <input class="fieldInput" id="emailInput" type="text" placeholder="Input data here" name="email" maxlength="100" autocomplete="on">
+                    <p class="charCount">1 line</p>
+                </div>
+                <div class="containerForDropdown">
+                    <p class="fieldTextLabel">Company</p>
+                    <input class="fieldInput" id="dropdownInputOrganization" type="text" placeholder="Choose from the list" readonly>
+                    <svg class="formDropdownArrow" id="dropdownArrowOrganization" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path id="feArrowUp2" fill-rule="evenodd" clip-rule="evenodd" d="M11.472 6.934L7.73601 10.67L4.00001 6.934L4.93401 6L7.73601 8.802L10.538 6L11.472 6.934Z" fill="#818A8F"/>
+                    </svg>
+                    <div class="dropdownsInForm" id="dropdownsInFormOrganization">
+                        <input class="searchInDropdowns" id="searchInDropdownsOrganization" type="text" placeholder="Search">
+                        <svg class="searchIcon" width="15" height="15" viewBox="0 0 17 17" fill="none">
+                            <path d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z" stroke="#818A8F" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14.0001 14.0001L11.1001 11.1001" stroke="#818A8F" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <ul class="dropdownList" id="dropdownListOrganization">
+                            <li><button class="buttonsInDropdownsOrganization"></button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="containerForTextField">
+                    <p class="fieldTextLabel">Position</p>
+                    <input class="fieldInput" id="positionInput" type="text" placeholder="Input data here" maxlength="130" name="job-title" autocomplete="on">
+                    <p class="charCount" id="charCount2">0/130</p>
+                </div>
+                <div class="containerForTextField">
+                    <p class="fieldTextLabel">Additional information (optional)</p>
+                    <input class="fieldInput" id="additionalInfoInput" type="text" placeholder="For example, a scientific degree" maxlength="100" name="degree" autocomplete="on">
+                    <p class="charCount" id="charCount3">0/100</p>
+                </div>
+                <div class="containerForDropdown">
+                    <p class="fieldTextLabel">Company address</p>
+                    <input class="fieldInput" id="dropdownInputOffice" type="text" placeholder="Choose from the list" readonly>
+                    <svg class="formDropdownArrow" id="dropdownArrowOffice" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path id="feArrowUp2" fill-rule="evenodd" clip-rule="evenodd" d="M11.472 6.934L7.73601 10.67L4.00001 6.934L4.93401 6L7.73601 8.802L10.538 6L11.472 6.934Z" fill="#818A8F"/>
+                    </svg>
+                    <div class="dropdownsInForm" id="dropdownsInFormOffice">
+                        <input class="searchInDropdowns" id="searchInDropdownsOffice" type="text" placeholder="Search">
+                        <svg class="searchIcon" width="15" height="15" viewBox="0 0 17 17" fill="none">
+                            <path d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z" stroke="#818A8F" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14.0001 14.0001L11.1001 11.1001" stroke="#818A8F" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <ul class="dropdownList" id="dropdownListOffice">
+                            <li><button class="buttonsInDropdownsOffice"></button></li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="containerForTextField">
+                    <p class="fieldTextLabel">Main phone number</p>
+                    <input class="fieldInput" id="mobilePhoneInput" type="text" placeholder="Enter here starting with +" maxlength="35" name="phone" autocomplete="on">
+                    <p class="charCount" id="charCount4">0/35</p>
+                </div>
+                <div class="containerForTextField">
+                    <p class="fieldTextLabel">Additional number (if needed)</p>
+                    <input class="fieldInput" id="workPhoneInput" type="text" placeholder="Enter here starting with +" maxlength="35" name="phone" autocomplete="on">
+                    <p class="charCount" id="charCount5">0/35</p>
+                </div>
+            </div>
+            <div class="formDisplay">
+                <h1 class="formHeadline">Business card creation</h1>
+                <div class="cardFront">
+                    <img class="logoCard" src="img/logo.svg" alt="TSUM Kyiv Logo">
+                    <p class="inputInCard" id="companyInCard">Company</p>
+                    <p class="inputInCard" id="webPageInCard">Webpage</p>
+                    <p class="inputInCard" id="emailInCard">Email</p>
+                    <p class="inputInCard" id="officeInCard">Company address</p>
+                    <p class="inputInCard" id="workPhoneInCard"></p>
+                    <p class="inputInCard" id="mobilePhoneInCard">Mobile number</p>
+                    <p class="inputInCard" id="fullnameInCard">Full name</p>
+                    <p class="inputInCard" id="positionInCard">Position</p>
+                    <p class="inputInCard" id="additionalInfoInCard"></p>
+                </div>
+                <div class="cardBack">
+                    <img class="qrCodeExample" src="img/qrCodeExampleENG.png" alt="Example of a QR code">
+                </div>
+                <div class="formControl">
+                    <button class="generateCardButton">Create business card</button>
+                    <button class="getQrButton">Download QR code</button>
+                    <div class="errorMessage">
+                        <svg class="iconError" width="17" height="17" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#FF3B30" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 8V12" stroke="#FAFCFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 16H12.01" stroke="#FAFCFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="errorText">The limit of characters has been exceeded</p>
+                    </div>
+                    <div class="errorMessage2">
+                        <svg class="iconError" width="17" height="17" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#FF3B30" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 8V12" stroke="#FAFCFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 16H12.01" stroke="#FAFCFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="errorText">There is no @ in the email input field</p>
+                    </div>
+                    <div class="warningMessage">
+                        <svg class="iconWarning" width="17" height="17" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.29 3.85996L1.82001 18C1.64537 18.3024 1.55297 18.6453 1.55199 18.9945C1.55102 19.3437 1.6415 19.6871 1.81443 19.9905C1.98737 20.2939 2.23673 20.5467 2.53771 20.7238C2.8387 20.9009 3.1808 20.9961 3.53001 21H20.47C20.8192 20.9961 21.1613 20.9009 21.4623 20.7238C21.7633 20.5467 22.0126 20.2939 22.1856 19.9905C22.3585 19.6871 22.449 19.3437 22.448 18.9945C22.447 18.6453 22.3546 18.3024 22.18 18L13.71 3.85996C13.5317 3.56607 13.2807 3.32308 12.9812 3.15444C12.6817 2.98581 12.3437 2.89722 12 2.89722C11.6563 2.89722 11.3183 2.98581 11.0188 3.15444C10.7193 3.32308 10.4683 3.56607 10.29 3.85996Z" fill="#FFCC00" stroke="#FFCC00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 9V13" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 17H12.01" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="warningText"></p>
+                    </div>
+                    <div class="successMessageQR">
+                        <svg class="iconSuccessQR" width="17" height="17" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" fill="#4CD964"/>
+                            <path d="M16 9L10.5 14.5L8 12" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="successTextQR">The QR code has been downloaded to your device</p>
+                    </div>
+                    <div class="successMessageCard">
+                        <svg class="iconSuccessCard" width="17" height="17" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" fill="#4CD964"/>
+                            <path d="M16 9L10.5 14.5L8 12" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="successTextCard">The card has been downloaded to your device</p>
+                    </div>
+                </div>
+            </div>
+            <div id="qrDiv"></div>
+            <canvas id="qrCanvas"></canvas>
+        </section>
+        <section class="footer">
+            <div class="footerWrapper">
+                <p class="errorNotification"><a href="instructions/Instruction.pdf" target="_blank"><u>User Manual</u></a></p>
+                <p class="copyright">© 2025 TSUM Kyiv</p>
+            </div>
+        </section>
+        <script type="text/javascript" src="js/dropdownPageLanguage.js"></script>
+        <script type="text/javascript" src="js/businessCard.js"></script>
+    </body>
+</html>
