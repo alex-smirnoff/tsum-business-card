@@ -6,13 +6,13 @@
 //Where \u200B is used in key VALUES (not in keys!), there the line breaks. 
 
 let assetsUKR = {
-	"ТОВ «Столичний ЦУМ»": ["04070 м. Київ,\u200B вул. Фролівська, 9-11"]
+	"ТОВ «ЦУМ Київ»": ["м. Київ,\u200B вул. Хрещатик, 38"]
 }
 let webPagesOfAssetsUKR = {
-    "ТОВ «Столичний ЦУМ»": "tsum.ua"
+    "ТОВ «ЦУМ Київ»": "tsum.ua"
 }
 let assetsENG = {
-	"TSUM Kyiv LLC": ["04070 Kyiv,\u200B 9-11 Frolivska Street"]
+	"TSUM Kyiv LLC": ["Kyiv,\u200B 38 Khreshchatyk Street"]
 }
 let webPagesOfAssetsENG = {
     "TSUM Kyiv LLC": "tsum.ua"
